@@ -1,0 +1,62 @@
+.bottomNav {
+  background-color: white;
+  position: fixed; 
+  bottom:0; 
+  left:0; 
+  width:100%; 
+  height: 80px; 
+  z-index: 99;
+  text-align: center;
+}
+
+
+.bottomNavOpen {
+  background-color: white;
+  animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  position: fixed; 
+  bottom:0; 
+  left:0; 
+  width:100%; 
+  height: 100px; 
+  z-index: 99;
+  text-align: center;
+}
+
+.rotateIcon {
+  animation: rotate-90-cw 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-370px);
+            transform: translateY(-370px);
+  }
+}
+
+@keyframes rotate-90-cw {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+}
+
+.FavoriteIcon {
+  position: absolute;
+  left: 67%;
+  bottom: 70%;
+  animation: fadein 15s
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
