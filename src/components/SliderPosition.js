@@ -1,23 +1,18 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/lab/Slider';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Slider from "@material-ui/lab/Slider";
 
 const styles = {
   root: {
-    paddingBottom: '20px',
-    width: '100%'
+    paddingBottom: "20px",
+    width: "100%"
   },
   slider: {
-    touchAction: 'none'
+    touchAction: "none"
   }
 };
 
-const SliderPosition = ({
-  classes, 
-  onChangePosition, 
-  position, 
-  duration
-}) => (
+const SliderPosition = ({ classes, onChangePosition, position, duration }) => (
   <div className={classes.root}>
     <Slider
       classes={{ container: classes.slider }}

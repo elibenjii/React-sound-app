@@ -1,25 +1,21 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/lab/Slider';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/lab/Slider";
 
 const styles = {
   root: {
-    display: 'flex',
+    display: "flex",
     height: 200,
-    padding: '30px 0'
+    padding: "30px 0"
   },
   slider: {
-    touchAction: 'none',
-    padding: '0px 22px'
-  },
+    touchAction: "none",
+    padding: "0px 22px"
+  }
 };
 
-const SliderVolume = ({
-  classes, 
-  onChangeVolume, 
-  volume
-}) => (
+const SliderVolume = ({ classes, onChangeVolume, volume }) => (
   <div className={classes.root}>
     <Slider
       vertical
@@ -31,6 +27,5 @@ const SliderVolume = ({
     />
   </div>
 );
-
 
 export default withStyles(styles)(SliderVolume);

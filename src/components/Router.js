@@ -1,41 +1,42 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import SwipeableViews from 'react-swipeable-views';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import ListZikGallery from './ListZikGallery'
-import Tab3 from './Tab3'
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
-import Favorite from '@material-ui/icons/Favorite';
-
-
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import SwipeableViews from "react-swipeable-views";
+import AppBar from "@material-ui/core/AppBar";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import ListZikGallery from "./ListZikGallery";
+import HistoryFavorites from "./HistoryFavorites";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
+import Favorite from "@material-ui/icons/Favorite";
 
 const TabContainer = ({ children, dir }) => {
   return (
-    <Typography component="div" dir={dir} style={{ height: document.documentElement.clientHeight - 100 }}>
+    <Typography
+      component="div"
+      dir={dir}
+      style={{ height: document.documentElement.clientHeight - 100 }}
+    >
       {children}
     </Typography>
   );
-}
+};
 
 const styles = theme => ({
   root: {
-    backgroundColor: 'white',
-    border: 'none',
-    boxShadow: '0px 0px 0px 0px rgba(0,0,0,0.75)'
+    backgroundColor: "white",
+    border: "none",
+    boxShadow: "0px 0px 0px 0px rgba(0,0,0,0.75)"
   }
 });
 
 class Router extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      value: 0,
+      value: 0
     };
   }
-
 
   handleChange = (event, value) => {
     this.setState({ value });
@@ -46,8 +47,8 @@ class Router extends Component {
   };
 
   render() {
-    const { 
-      classes, 
+    const {
+      classes,
       theme,
       onSearch,
       query,
@@ -58,7 +59,7 @@ class Router extends Component {
       favorites
     } = this.props;
 
-    const { value } = this.state
+    const { value } = this.state;
 
     return (
       <div className={classes.root}>
@@ -71,16 +72,24 @@ class Router extends Component {
             fullWidth
           >
             <Tab label="Library" />
-            <Tab icon={value === 1 ? <Favorite color="secondary" /> : <FavoriteBorder color="secondary" />} />
+            <Tab
+              icon={
+                value === 1 ? (
+                  <Favorite color="secondary" />
+                ) : (
+                  <FavoriteBorder color="secondary" />
+                )
+              }
+            />
           </Tabs>
         </AppBar>
         <SwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={value}
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <ListZikGallery 
+            <ListZikGallery
               searchData={searchData}
               onSearch={onSearch}
               query={query}
@@ -89,7 +98,7 @@ class Router extends Component {
             />
           </TabContainer>
           <TabContainer dir={theme.direction}>
-            <Tab3
+            <HistoryFavorites
               trackPlayedHistory={trackPlayedHistory}
               changeZik={changeZik}
               handleOpenSnackBar={handleOpenSnackBar}
